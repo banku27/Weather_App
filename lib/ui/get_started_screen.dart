@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/constants.dart';
+import 'package:weather_app/ui/welcome_screen.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({Key? key}) : super(key: key);
@@ -28,17 +29,25 @@ class _GetStartedState extends State<GetStarted> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                height: 50,
-                width: size.width * 0.7,
-                decoration: BoxDecoration(
-                  color: myConstants.primaryColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Get started',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WelcomeScreen()));
+                },
+                child: Container(
+                  height: 50,
+                  width: size.width * 0.7,
+                  decoration: BoxDecoration(
+                    color: myConstants.primaryColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Get started',
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
                   ),
                 ),
               )
